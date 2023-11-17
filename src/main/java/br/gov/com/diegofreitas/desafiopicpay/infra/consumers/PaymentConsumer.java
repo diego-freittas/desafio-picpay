@@ -23,7 +23,7 @@ public class PaymentConsumer {
         this.paymentService = paymentService;
     }
 
-    @KafkaListener(topics = "payment")
+    @KafkaListener(topics = "teste.teste-menssage" , groupId = "payment-groupId")
     public void consume(@Header(value = "transaction", required = false) Long transactionId,
                         @Payload Double value, AcknowledgeMode acknowledgeMode) throws InterruptedException {
         try {
