@@ -50,12 +50,12 @@ public class UserController {
                                                   Authentication authentication){
         UserDetails userDetails = (UserDetailsImpl) authentication.getPrincipal();
         log.info("Authentication {}",userDetails.getUsername());
-        Page<User> userModelPage = userService.findAll(spec, pageable);
-        if(!userModelPage.isEmpty()){
-            for(User user : userModelPage.toList()){
-                user.add(linkTo(methodOn(UserController.class).getOneUser(user.getUserId())).withSelfRel());
-            }
-        }
+        Page<User> userModelPage = userService.findAll(pageable);
+//        if(!userModelPage.isEmpty()){
+//            for(User user : userModelPage.toList()){
+//                user.add(linkTo(methodOn(UserController.class).getOneUser(user.getUserId())).withSelfRel());
+//            }
+//        }
         return ResponseEntity.status(HttpStatus.OK).body(userModelPage);
     }
 

@@ -2,7 +2,7 @@ package br.gov.com.diegofreitas.desafiopicpay.dtos;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 @Data
 public class LoginDto {

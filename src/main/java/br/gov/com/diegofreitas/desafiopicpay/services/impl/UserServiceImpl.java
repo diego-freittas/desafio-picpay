@@ -7,7 +7,6 @@ import br.gov.com.diegofreitas.desafiopicpay.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +36,7 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(userModel);
     }
 
+    @Transactional
     @Override
     public User save(User userModel) {
         return userRepository.save(userModel);
@@ -52,9 +52,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.existsByEmail(email);
     }
 
+//    @Override
+//    public Page<User> findAll(Specification<User> spec, Pageable pageable) {
+//        return userRepository.findAll(spec, pageable);
+//    }
+
     @Override
-    public Page<User> findAll(Specification<User> spec, Pageable pageable) {
-        return userRepository.findAll(spec, pageable);
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @Transactional
