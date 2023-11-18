@@ -1,4 +1,4 @@
-package br.gov.com.diegofreitas.desafiopicpay.infra;
+package br.gov.com.diegofreitas.desafiopicpay.infra.exceptios;
 
 
 import br.gov.com.diegofreitas.desafiopicpay.dtos.ExceptionDTO;
